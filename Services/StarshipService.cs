@@ -1,18 +1,21 @@
+using Newtonsoft.Json;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
 using StarWarsAPIChallenge.Models;
-using System.Linq;
+using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace StarWarsAPIChallenge.Services
 {
     public class StarshipService
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly ILogger<StarshipService> _logger;
 
-        public StarshipService(IHttpClientFactory httpClientFactory)
+        public StarshipService(IHttpClientFactory httpClientFactory, ILogger<StarshipService> logger)
         {
             _httpClientFactory = httpClientFactory;
+            _logger = logger;
         }
 
         public async Task<List<Starship>> GetStarshipsAsync(string? manufacturer)
@@ -26,22 +29,24 @@ namespace StarWarsAPIChallenge.Services
             }
 
             var starshipsData = await response.Content.ReadAsStringAsync();
-            var starshipsResponse = JsonSerializer.Deserialize<StarshipsResponse>(starshipsData);
 
-            if (starshipsResponse?.Results == null || starshipsResponse.Results.Count == 0)
-            {
-                return new List<Starship>();
-            }
+            
+            var starshipsResponse = JsonConvert.DeserializeObject<StarshipResponse>(starshipsData);
 
-            // Filtrar por fabricante si se proporciona
+           
+            var starships = starshipsResponse?.Results ?? new List<Starship>();
+
+          
             if (!string.IsNullOrEmpty(manufacturer))
             {
-                starshipsResponse.Results = starshipsResponse.Results
-                    .Where(s => s.Manufacturer.Contains(manufacturer, StringComparison.OrdinalIgnoreCase))
+                string normalizedManufacturer = manufacturer.Trim().ToLower();
+
+                starships = starships
+                    .Where(s => s.Manufacturer.ToLower().Contains(normalizedManufacturer))
                     .ToList();
             }
 
-            return starshipsResponse.Results;
+            return starships;
         }
     }
 }

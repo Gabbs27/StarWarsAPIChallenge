@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
     {
-        builder.WithOrigins("https://example.com") // Define allowed origins here
+        builder.WithOrigins("https://swapi.dev/api/starships/") // Define allowed origins here
                .AllowAnyHeader()
                .AllowAnyMethod();
     });

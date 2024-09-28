@@ -20,21 +20,14 @@ namespace StarWarsAPIChallenge.Controllers
         [Authorize]
         public async Task<IActionResult> GetStarships([FromQuery] string? manufacturer)
         {
-            try
-            {
-                var starships = await _starshipService.GetStarshipsAsync(manufacturer);
+            var starships = await _starshipService.GetStarshipsAsync(manufacturer);
 
-                if (starships.Count == 0)
-                {
-                    return NoContent();
-                }
-
-                return Ok(starships);
-            }
-            catch (HttpRequestException ex)
+            if (starships.Count == 0)   
             {
-                return StatusCode(500, ex.Message);
+                return NoContent();  // Devuelve un 204 si no hay naves espaciales
             }
+
+            return Ok(starships);  // Devuelve los datos como JSON
         }
     }
 }
