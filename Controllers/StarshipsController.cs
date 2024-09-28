@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Linq;
+using System;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -17,8 +18,9 @@ public class StarshipsController : ControllerBase
     }
 
     [HttpGet]
+    [HttpGet]
     [Authorize]
-    public async Task<IActionResult> GetStarships([FromQuery] string manufacturer)
+    public async Task<IActionResult> GetStarships([FromQuery] string? manufacturer)
     {
         var client = _httpClientFactory.CreateClient();
         var response = await client.GetAsync("https://swapi.dev/api/starships/");
@@ -31,7 +33,12 @@ public class StarshipsController : ControllerBase
         var starshipsData = await response.Content.ReadAsStringAsync();
         var starships = JsonSerializer.Deserialize<StarshipsResponse>(starshipsData);
 
+        if (starships.Results == null || starships.Results.Count == 0)
+        {
+            return NoContent(); 
+        }
 
+       
         if (!string.IsNullOrEmpty(manufacturer))
         {
             starships.Results = starships.Results
