@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using StarWarsAPIChallenge.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,6 +42,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 // Add HttpClient for external API calls
 builder.Services.AddHttpClient();
+builder.Services.AddScoped<StarshipService>(); 
+
 
 // Add Swagger for API documentation
 builder.Services.AddSwaggerGen(c =>

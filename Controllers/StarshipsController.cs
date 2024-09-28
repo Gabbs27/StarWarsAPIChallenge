@@ -1,62 +1,40 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using System.Text.Json;
+using StarWarsAPIChallenge.Services;
 using System.Threading.Tasks;
-using System.Linq;
-using System;
 
-[ApiController]
-[Route("api/[controller]")]
-public class StarshipsController : ControllerBase
+namespace StarWarsAPIChallenge.Controllers
 {
-    private readonly IHttpClientFactory _httpClientFactory;
-
-    public StarshipsController(IHttpClientFactory httpClientFactory)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class StarshipsController : ControllerBase
     {
-        _httpClientFactory = httpClientFactory;
+        private readonly StarshipService _starshipService;
+
+        public StarshipsController(StarshipService starshipService)
+        {
+            _starshipService = starshipService;
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> GetStarships([FromQuery] string? manufacturer)
+        {
+            try
+            {
+                var starships = await _starshipService.GetStarshipsAsync(manufacturer);
+
+                if (starships.Count == 0)
+                {
+                    return NoContent();
+                }
+
+                return Ok(starships);
+            }
+            catch (HttpRequestException ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
-
-    [HttpGet]
-    [HttpGet]
-    [Authorize]
-    public async Task<IActionResult> GetStarships([FromQuery] string? manufacturer)
-    {
-        var client = _httpClientFactory.CreateClient();
-        var response = await client.GetAsync("https://swapi.dev/api/starships/");
-
-        if (!response.IsSuccessStatusCode)
-        {
-            return StatusCode((int)response.StatusCode, "Error fetching starships");
-        }
-
-        var starshipsData = await response.Content.ReadAsStringAsync();
-        var starships = JsonSerializer.Deserialize<StarshipsResponse>(starshipsData);
-
-        if (starships.Results == null || starships.Results.Count == 0)
-        {
-            return NoContent(); 
-        }
-
-       
-        if (!string.IsNullOrEmpty(manufacturer))
-        {
-            starships.Results = starships.Results
-                .Where(s => s.Manufacturer.Contains(manufacturer, StringComparison.OrdinalIgnoreCase))
-                .ToList();
-        }
-
-        return Ok(starships.Results);
-    }
-}
-
-public class Starship
-{
-    public string Name { get; set; }
-    public string Manufacturer { get; set; }
-}
-
-public class StarshipsResponse
-{
-    public List<Starship> Results { get; set; }
 }
