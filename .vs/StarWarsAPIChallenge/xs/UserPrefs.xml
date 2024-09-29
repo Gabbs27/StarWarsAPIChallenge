@@ -1,34 +1,35 @@
 ﻿<Properties StartupConfiguration="{B4E402E2-7732-4AE1-9971-BD98F3EF7680}|Default">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/Controllers/StarshipsController.cs" relfile="Controllers/StarshipsController.cs" line="24" column="1" />
-      <Breakpoint file="/Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/Controllers/StarshipsController.cs" relfile="Controllers/StarshipsController.cs" line="30" column="1" />
-      <Breakpoint file="/Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/Controllers/StarshipsController.cs" relfile="Controllers/StarshipsController.cs" line="38" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Models/StarshipResponse.cs">
+  <MonoDevelop.Ide.ItemProperties.StarWarsAPIChallenge PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../../usr/local/share/dotnet/sdk/6.0.408/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets">
     <Files>
-      <File FileName="Controllers/StarshipsController.cs" Line="33" Column="1" />
-      <File FileName="Program.cs" Line="45" Column="48" />
+      <File FileName="Controllers/StarshipsController.cs" Line="30" Column="16" />
+      <File FileName="Program.cs" Line="92" Column="15" />
       <File FileName="appsettings.json" Line="12" Column="47" />
       <File FileName="Properties/launchSettings.json" Line="1" Column="1" />
-      <File FileName="Controllers/AuthController.cs" Line="38" Column="1" />
-      <File FileName="Services/StarshipService.cs" Line="51" Column="1" />
-      <File FileName="Models/StarshipResponse.cs" Line="8" Column="1" />
+      <File FileName="Controllers/AuthController.cs" Line="4" Column="30" />
+      <File FileName="Services/StarshipService.cs" Line="1" Column="7" />
+      <File FileName="Models/StarshipResponse.cs" Line="10" Column="2" />
+      <File FileName="Models/Starship.cs" Line="8" Column="50" />
+      <File FileName="../../../../../../usr/local/share/dotnet/sdk/6.0.408/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" Line="267" Column="5" />
+      <File FileName="../StarWarsAPIChallenge.Tests/Usings.cs" Line="1" Column="1" />
+      <File FileName="../StarWarsAPIChallenge.Tests/StarShipService.cs" Line="8" Column="24" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="StarWarsAPIChallenge">
             <Node name="StarWarsAPIChallenge">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Services" expanded="True" />
+            </Node>
+            <Node name="StarWarsAPIChallenge.Tests" expanded="True">
               <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
+                <Node name="PackageDependencies" expanded="True" selected="True" />
               </Node>
-              <Node name="Models">
-                <Node name="StarshipResponse.cs" selected="True" />
-              </Node>
-              <Node name="Properties" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -38,7 +39,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.StarWarsAPIChallenge PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
