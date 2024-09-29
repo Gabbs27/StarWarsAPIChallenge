@@ -34,5 +34,11 @@
 /Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/obj/Debug/net6.0/StarWarsAPIChallenge.pdb
 /Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/obj/Debug/net6.0/StarWarsAPIChallenge.genruntimeconfig.cache
 /Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/obj/Debug/net6.0/ref/StarWarsAPIChallenge.dll
-/Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/obj/Debug/net6.0/StarWarsAPIChallenge.csproj.CopyComplete
 /Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/obj/Debug/net6.0/StarWarsAPIChallenge.sourcelink.json
+/Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/obj/Debug/net6.0/staticwebassets/msbuild.StarWarsAPIChallenge.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/obj/Debug/net6.0/staticwebassets/msbuild.build.StarWarsAPIChallenge.props
+/Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.StarWarsAPIChallenge.props
+/Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.StarWarsAPIChallenge.props
+/Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/obj/Debug/net6.0/staticwebassets.pack.json
+/Users/gabriel/Desktop/Programacion/net/StarWarsAPIChallenge/obj/Debug/net6.0/StarWars.B9DAF971.Up2Date
